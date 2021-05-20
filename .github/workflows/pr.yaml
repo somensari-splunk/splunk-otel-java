@@ -7,6 +7,9 @@ concurrency:
 on:
   pull_request:
 
+#permissions:
+#  packages: read
+
 jobs:
   check-links:
     runs-on: ubuntu-20.04
@@ -93,6 +96,8 @@ jobs:
 
   smoke-test:
     runs-on: ${{ matrix.os }}
+    permissions:
+      packages: read
     strategy:
       matrix:
         os: [ windows-2019, ubuntu-20.04 ]
